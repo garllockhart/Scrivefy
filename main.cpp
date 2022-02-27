@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 	
 	switch(pilih_menu){
 		case 1 : 
-			newFile();
+//			newFile();
 			break;
 		case 2 : 
 			break;

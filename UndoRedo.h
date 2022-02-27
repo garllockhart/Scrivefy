@@ -1,5 +1,5 @@
-#ifndef undo_redo_H
-#define undo_redo_H
+#ifndef UndoRedo_H
+#define UndoRedo_H
 #include <stdio.h>
 #include <stdlib.h>
 

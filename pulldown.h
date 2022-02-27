@@ -1,5 +1,5 @@
-#ifndef pulldown_H
-#define pulldown_H
+#ifndef PullDown_H
+#define PullDown_H
 #include <stdio.h>
 #include <stdlib.h>
 

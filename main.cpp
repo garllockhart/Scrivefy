@@ -1,10 +1,18 @@
+/*
+File Name		: main.cpp
+Description		: 
+Author			: 
+Date			: 27/02/2022
+*/
+
 #include <iostream>
 #include "pulldown.h"
+#include "FileHandling.h"
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#define COLUMNS 15
+#define ROWS 1
 
 int main(int argc, char** argv) {
-	
 	int pilih_menu;
 	
 	printf("Menu Fitur Teks Editor\n");
@@ -18,7 +26,7 @@ int main(int argc, char** argv) {
 	
 	switch(pilih_menu){
 		case 1 : 
-//			newFile();
+			newFile();
 			break;
 		case 2 : 
 			break;

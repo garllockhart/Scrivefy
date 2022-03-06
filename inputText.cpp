@@ -33,7 +33,10 @@ void setText(text *newText,char temp, int i, int j){
 		temp = SPACE;
 		newText->column[j] = temp;
 	}
-	else{
+	else if (temp == TAB){
+		temp = TAB;
+		newText->column[j] = temp;
+	}else{
 		newText->column[j] = temp;
 	}
 	

@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=13
+UnitCount=14
 
 [VersionInfo]
 Major=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=inputText.cpp
+FileName=Welcome.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=inputText.cpp
+FileName=Welcome.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -100,26 +100,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
-FileName=Scrivefy.dev
-Folder=
-Compile=0
-Link=0
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit6]
-FileName=undo_redo.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit7]
 FileName=FileHandling.h
 CompileCpp=1
 Folder=
@@ -129,7 +110,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit8]
+[Unit7]
 FileName=KeyboardShortcuts.h
 CompileCpp=1
 Folder=
@@ -139,7 +120,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit9]
+[Unit8]
 FileName=TimeDate.h
 CompileCpp=1
 Folder=
@@ -149,7 +130,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit10]
+[Unit9]
 FileName=FileHandling.cpp
 CompileCpp=1
 Folder=
@@ -159,7 +140,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit11]
+[Unit10]
 FileName=TimeDate.cpp
 CompileCpp=1
 Folder=
@@ -169,7 +150,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit12]
+[Unit11]
 FileName=inputText.h
 CompileCpp=1
 Folder=
@@ -179,7 +160,37 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit12]
+FileName=inputText.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit5]
+FileName=undo_redo.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit15]
+FileName=Welcome.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
 FileName=undo_redo.cpp
 CompileCpp=1
 Folder=

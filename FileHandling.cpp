@@ -6,29 +6,37 @@ Date			: 27/02/2022
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 #include <string.h>
 #include "inputText.h"
 #include "FileHandling.h"
+#include "KeyboardShortcuts.h"
 
 void newFile(){
-	FILE *file_text;
+	FILE *FileText;
 	text newText;
-	char file_name[25];
-	char extension[5];
-	printf("Masukkan Nama File : \n");
-	scanf("%s", &file_name);
-	strcpy(extension, ".txt");
-	strcat(file_name,extension);
-	printf("%s", file_name);
-	if((file_text = fopen(file_name, "w+") )== NULL){
+	char Location[30], FileName[25], Extension[5];
+	
+	printf("Enter File Name (Without Extension) : \n");
+	scanf("%s", &FileName);
+	strcpy(Extension, ".txt");
+	strcpy(Location, "Text/");
+	
+	strcat(Location, FileName);
+	strcat(Location, Extension);
+	system("cls");
+	
+	FileText = fopen(Location, "w+");
+	
+	if(!FileText){
 		printf("Couldn't open this file! \n");
 		return;
 	}
+	
 	inputText(&newText);
 	
-	fprintf(file_text, " %s %s", newText.column, newText.rows);
+	fprintf(FileText, "%s %s", newText.column, newText.rows);
 	
-	fclose(file_text);
-	
+	fclose(FileText);
 }

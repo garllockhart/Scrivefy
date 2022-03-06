@@ -5,39 +5,14 @@ Author			:
 Date			: 27/02/2022
 */
 
-#include <iostream>
-#include "pulldown.h"
-#include "FileHandling.h"
+/* ========== Header File ========== */
+#include "welcome.h"
+/* ======= End of Header File ====== */
 
-#define COLUMNS 15
-#define ROWS 1
+int main()
+{
+	/* Call Modul Welcome */
+    Welcome();
 
-int main(int argc, char** argv) {
-	int pilih_menu;
-	
-	printf("Menu Fitur Teks Editor\n");
-	printf("1. New File\n");
-	printf("2. Open File\n");
-	printf("3. Edit File\n");
-	printf("4. Delete File\n");
-	printf("5. Help\n");
-	printf("\n\tPilih : ");
-	scanf("%d", &pilih_menu);
-	
-	switch(pilih_menu){
-		case 1 : 
-			newFile();
-			break;
-		case 2 : 
-			break;
-		case 3 : 
-			break;
-		case 4 : 
-			break;
-		case 5 : 
-			break;
-	}
-	
-	
-	return 0;
+    return 0;
 }

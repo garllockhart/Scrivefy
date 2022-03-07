@@ -10,5 +10,6 @@ Date			: 27/02/2022
 #include "inputText.h"
 
 void newFile(); // modul untuk membuat file baru
+void deleteFile();
 
 #endif

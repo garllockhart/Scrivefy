@@ -45,6 +45,7 @@ int Welcome()
 		case 3 : 
 			break;
 		case 4 : 
+			deleteFile();
 			break;
 		case 5 : 
 			break;

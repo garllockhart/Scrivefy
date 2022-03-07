@@ -29,14 +29,13 @@ void inputText(text *newText){
 void setText(text *newText,char temp, int i, int j){
 	newText->rows[i] = i;
 	 
-	if(temp == SPACE){
-		temp = SPACE;
-		newText->column[j] = temp;
-	}
-	else if (temp == TAB){
+	if (temp == TAB) {
 		temp = TAB;
 		newText->column[j] = temp;
-	}else{
+	} else if (temp == SPACE) {
+		temp = SPACE;
+		newText->column[j] = temp;
+	} else {
 		newText->column[j] = temp;
 	}
 	

@@ -10,16 +10,19 @@ Date			: 27/02/2022
 #include <string.h>
 #include "inputText.h"
 #include "KeyboardShortcuts.h"
+#include "FileHandling.h"
 
-void inputText(text *newText){
+void inputText(text *newText, char file_name[]){
 	int i;
 	int j;
 	char temp;
-	
 	for(i=0; i<ROWS; i++){
 		for(j=0; j<COLUMNS; j++){
 			temp = getch();
 			setText(&(*newText), temp, i, j);
+			if(newText->column[j] == SAVE){
+				saveFile(&(*newText), file_name);
+			}
 		}
 	}
 	
@@ -28,15 +31,22 @@ void inputText(text *newText){
 
 void setText(text *newText,char temp, int i, int j){
 	newText->rows[i] = i;
-	 
-	if (temp == TAB) {
-		temp = TAB;
-		newText->column[j] = temp;
-	} else if (temp == SPACE) {
-		temp = SPACE;
-		newText->column[j] = temp;
-	} else {
-		newText->column[j] = temp;
+	switch(temp){
+		case TAB : 
+			temp = TAB;
+			newText->column[j] = temp;
+			break;
+		case SPACE :
+			temp = SPACE;
+			newText->column[j] = temp;
+			break;
+		case SAVE :
+			temp = SAVE;
+			newText->column[j] = temp;
+			break;
+		default:
+			newText->column[j] = temp;
+			break;
 	}
 	
 	printf("%c", newText->column[j]);

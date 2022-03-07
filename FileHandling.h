@@ -11,5 +11,6 @@ Date			: 27/02/2022
 
 void newFile(); // modul untuk membuat file baru
 void deleteFile();
+void saveFile(text *newText, char file_name[]);
 
 #endif

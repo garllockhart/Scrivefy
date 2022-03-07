@@ -42,12 +42,12 @@ void newFile()
 		/* Call Modul Welcome */
 		Welcome(); 
 	}
-	
-	inputText(&newText);
-	
-	fprintf(FileText, "%s %s", newText.column, newText.rows);
-	
 	fclose(FileText);
+	inputText(&newText, Location);
+	
+//	fprintf(FileText, "%s %s", newText.column, newText.rows);
+	
+	
 }
 
 void deleteFile()
@@ -102,4 +102,8 @@ void deleteFile()
 		/* Call Modul Welcome */
 		Welcome(); 
 	}
+}
+
+void saveFile(text *newText, char file_name[]){
+	printf("Halo");
 }

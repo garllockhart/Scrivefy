@@ -16,7 +16,7 @@ typedef struct {
 	int rows[ROWS];
 }text;
 
-void inputText(text *newText);
+void inputText(text *newText, char file_name[]);
 void setText(text *newText,char temp, int i, int j);
 void displayText(text newText);
 #endif

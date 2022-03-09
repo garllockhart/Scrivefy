@@ -9,6 +9,9 @@ Date			: 27/02/2022
 #define FileHandling_H
 #include "inputText.h"
 
+#include "KeyboardShortcuts.h"
+#include "Welcome.h"
+
 void newFile(); // modul untuk membuat file baru
 void deleteFile();
 void saveFile(text *newText, char file_name[]);

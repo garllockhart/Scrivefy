@@ -15,15 +15,18 @@ Date			: 27/02/2022
 
 void inputText(text *newText, char file_name[]){
 	char temp;
-	n = COLUMNS;
+	int baris = 0;
+	int kolom = 0;
+	int top = -1; 
+	int n = COLUMNS;
 	printf("Input Teks Anda\n");
 	while(baris<=ROWS){
 		while(true){
 			temp = getch();
 			top++;
-			setText(&(*newText), temp, file_name);
+			setText(&(*newText), temp, file_name, &top, n);
 			kolom++;
-			displayText(*newText);
+			displayText(*newText, top);
 			if(top == 80){
 				break;
 			}
@@ -35,7 +38,7 @@ void inputText(text *newText, char file_name[]){
 	
 }
 
-void setText(text *newText,char temp, char file_name[]){
+void setText(text *newText,char temp, char file_name[], int *top, int n){
 //	newText->rows[i] = i;
 //	switch(temp){
 //		case TAB : 
@@ -54,7 +57,7 @@ void setText(text *newText,char temp, char file_name[]){
 //			newText->column[j] = temp;
 //			break;
 //	}
-	if(top>n-1)
+	if(*top>n-1)
     {
 //    	newText->column[top] = 32;
     }
@@ -62,7 +65,7 @@ void setText(text *newText,char temp, char file_name[]){
     {
     	switch(temp){
     		case SPACE:
-    			newText->column[top] = 32;
+    			newText->column[*top] = 32;
     			break;
     		case BACKSPACE:
 //    			backspace(*newText);
@@ -70,14 +73,14 @@ void setText(text *newText,char temp, char file_name[]){
     		case SAVE :
 				saveFile(&(*newText),file_name);
     		default:
-    			newText->column[top] = temp;
+    			newText->column[*top] = temp;
     			break;
 		}		
     }
 	
 }
 
-void displayText(text newText){
+void displayText(text newText, int top){
 	system("cls");
 	int i= 0;
 	int j = 0;

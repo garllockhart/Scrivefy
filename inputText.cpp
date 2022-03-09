@@ -8,51 +8,84 @@ Date			: 27/02/2022
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "inputText.h"
 #include "KeyboardShortcuts.h"
 #include "FileHandling.h"
 
 void inputText(text *newText, char file_name[]){
-	int i;
-	int j;
 	char temp;
-	for(i=0; i<ROWS; i++){
-		for(j=0; j<COLUMNS; j++){
+	n = COLUMNS;
+	printf("Input Teks Anda\n");
+	while(baris<=ROWS){
+		while(true){
 			temp = getch();
-			setText(&(*newText), temp, i, j);
-			if(newText->column[j] == SAVE){
-				saveFile(&(*newText), file_name);
+			top++;
+			setText(&(*newText), temp, file_name);
+			kolom++;
+			displayText(*newText);
+			if(top == 80){
+				break;
 			}
 		}
+		baris++;
+//		newText.column[baris][top];
 	}
 	
-	displayText(*newText);
+	
 }
 
-void setText(text *newText,char temp, int i, int j){
-	newText->rows[i] = i;
-	switch(temp){
-		case TAB : 
-			temp = TAB;
-			newText->column[j] = temp;
-			break;
-		case SPACE :
-			temp = SPACE;
-			newText->column[j] = temp;
-			break;
-		case SAVE :
-			temp = SAVE;
-			newText->column[j] = temp;
-			break;
-		default:
-			newText->column[j] = temp;
-			break;
-	}
+void setText(text *newText,char temp, char file_name[]){
+//	newText->rows[i] = i;
+//	switch(temp){
+//		case TAB : 
+//			temp = TAB;
+//			newText->column[j] = temp;
+//			break;
+//		case SPACE :
+//			temp = SPACE;
+//			newText->column[j] = temp;
+//			break;
+//		case SAVE :
+//			temp = SAVE;
+//			newText->column[j] = temp;
+//			break;
+//		default:
+//			newText->column[j] = temp;
+//			break;
+//	}
+	if(top>n-1)
+    {
+//    	newText->column[top] = 32;
+    }
+    else
+    {
+    	switch(temp){
+    		case SPACE:
+    			newText->column[top] = 32;
+    			break;
+    		case BACKSPACE:
+//    			backspace(*newText);
+    			break;
+    		case SAVE :
+				saveFile(&(*newText),file_name);
+    		default:
+    			newText->column[top] = temp;
+    			break;
+		}		
+    }
 	
-	printf("%c", newText->column[j]);
 }
 
 void displayText(text newText){
-	printf("\nTeks Anda\n");
-	printf("%s", newText.column);
+	system("cls");
+	int i= 0;
+	int j = 0;
+//	while(j<=baris){
+		while(i<=top){
+			printf("%c", newText.column[i] );
+			i++;
+		}
+//		j++;
+//	}
 }

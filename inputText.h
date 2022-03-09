@@ -15,10 +15,8 @@ typedef struct {
 	char column[COLUMNS];
 }text;
 
-
-
-
 void inputText(text *newText, char file_name[]);
 void setText(text *newText,char temp, char file_name[], int *top, int n);
 void displayText(text newText, int top);
+
 #endif

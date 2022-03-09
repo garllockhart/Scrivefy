@@ -11,6 +11,7 @@ Date			: 27/02/2022
 #include <stdlib.h>
 #include "inputText.h"
 #include "KeyboardShortcuts.h"
+#include "InputHandlingNonStandard.h"
 #include "FileHandling.h"
 
 void inputText(text *newText, char file_name[]){
@@ -68,7 +69,7 @@ void setText(text *newText,char temp, char file_name[], int *top, int n){
     			newText->column[*top] = 32;
     			break;
     		case BACKSPACE:
-//    			backspace(*newText);
+    			BackSpace(*newText, top);
     			break;
     		case SAVE :
 				saveFile(&(*newText),file_name);

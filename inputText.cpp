@@ -24,21 +24,21 @@ void inputText(text *newText, char file_name[]){
 	printf("%d", n);
 	printf("Input Teks Anda\n");
 	for(i = 0; i<=ROWS; i++){
-		printf(" nilai i %d \n", i);
+	//	printf(" nilai i %d \n", i);
 		baris = i;
 		for(;;){
 			temp = getch();
 			top++;
 			j++;
 			setText(&(*newText),temp, file_name, &top, &baris, n);
-			printf("Ini new Text\n ");
-			printf("BARIS = %d, ", baris);
-			printf("TOP = %d, ", top);
-			printf("CHAR = %c\n", newText->text[i][top]);
+//			printf("Ini new Text\n ");
+//			printf("BARIS = %d, ", baris);
+//			printf("TOP = %d, ", top);
+//			printf("CHAR = %c\n", newText->text[i][top]);
 			if(top < 0 || baris > i){
 				break;
 			}
-			displayText(*newText, top);
+			displayText(*newText, baris, top);
 		}
 	}
 	
@@ -75,15 +75,20 @@ void setText(text *newText,char temp, char file_name[], int *top,int *baris, int
 	
 }
 
-void displayText(text newText, int top){
-//	system("cls");
+void displayText(text newText, int baris, int top){
+	system("cls");
 	int i= 0;
 	int j = 0;
-//	while(j<=baris){
-		while(i<=top){
-			printf("%c", newText.text[i] );
-			i++;
+	while(i<=baris){
+		j = 0;
+		while(j<=top){
+//			printf(" | %d %d | ", i ,j);
+			
+			printf("%c", newText.text[i][j] );
+			j++;
 		}
-//		j++;
-//	}
+		i++;	
+		printf("\n");
+		
+	}
 }

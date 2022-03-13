@@ -8,7 +8,7 @@ Date			: 27/02/2022
 #ifndef inputText_H
 #define inputText_H
 
-#define COLUMNS 80
+#define COLUMNS 5
 #define ROWS 2
 
 typedef struct {

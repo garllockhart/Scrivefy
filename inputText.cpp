@@ -21,8 +21,10 @@ void inputText(text *newText, char file_name[]){
 	int baris = -1;
 	j = top;
 	int n = COLUMNS;
+	printf("%d", n);
 	printf("Input Teks Anda\n");
 	for(i = 0; i<=ROWS; i++){
+		printf(" nilai i %d \n", i);
 		baris = i;
 		for(;;){
 			temp = getch();
@@ -33,8 +35,7 @@ void inputText(text *newText, char file_name[]){
 			printf("BARIS = %d, ", baris);
 			printf("TOP = %d, ", top);
 			printf("CHAR = %c\n", newText->text[i][top]);
-			if(top < j){
-				j = top;
+			if(top < 0 || baris > i){
 				break;
 			}
 			displayText(*newText, top);
@@ -47,7 +48,7 @@ void inputText(text *newText, char file_name[]){
 void setText(text *newText,char temp, char file_name[], int *top,int *baris, int n){
 	if(*top>=n-1)
     {
-        *top = 0;
+        *top = -1;
     	*baris++;   
     }
     else

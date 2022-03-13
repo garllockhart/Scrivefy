@@ -1,4 +1,5 @@
 #include "undo_redo.h"
+#include <stdio.h>
 
 void undo(char text[], int top)
 {

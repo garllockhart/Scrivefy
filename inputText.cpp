@@ -8,83 +8,79 @@ Date			: 27/02/2022
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "inputText.h"
 #include "KeyboardShortcuts.h"
+#include "InputHandlingNonStandard.h"
 #include "FileHandling.h"
 
 void inputText(text *newText, char file_name[]){
-	int i;
-	int j;
 	char temp;
-	for(i = 0; i<ROWS; i++){
+	int i,j;
+	int top = -1; 
+	int baris = -1;
+	j = top;
+	int n = COLUMNS;
+	printf("Input Teks Anda\n");
+	for(i = 0; i<=ROWS; i++){
 		baris = i;
 		for(;;){
 			temp = getch();
 			top++;
-			setText(&(*newText), temp, i, j);
-			if(newText->column[j] == SAVE){
-				saveFile(&(*newText), file_name);
-			if(top < 0){
+			j++;
+			setText(&(*newText),temp, file_name, &top, &baris, n);
+			printf("Ini new Text\n ");
+			printf("BARIS = %d, ", baris);
+			printf("TOP = %d, ", top);
+			printf("CHAR = %c\n", newText->text[i][top]);
+			if(top < j){
+				j = top;
 				break;
 			}
-			displayText(*newText);
+			displayText(*newText, top);
 		}
-		
 	}
+	
+	
 }
 
-void setText(text *newText,char temp, int i, int j){
-//	newText->rows[i] = i;
-//	switch(temp){
-//		case TAB : 
-//			temp = TAB;
-//			newText->column[j] = temp;
-//			break;
-//		case SPACE :
-//			temp = SPACE;
-//			newText->column[j] = temp;
-//			break;
-//		case SAVE :
-//			temp = SAVE;
-//			newText->column[j] = temp;
-//			break;
-//		default:
-//			newText->column[j] = temp;
-//			break;
-//	}
-//	
-//	printf("%c", newText->column[j]);
-text undoText;
-	
-    if(top>=n-1)
+void setText(text *newText,char temp, char file_name[], int *top,int *baris, int n){
+	if(*top>=n-1)
     {
-        top = 0;
-    	baris++;
-        
+        *top = 0;
+    	*baris++;   
     }
     else
     {
     	switch(temp){
-    		case 8:
-    			backspace(*newText, &undoText);
-    			printf("\nini undo %c\n", undoText.column[baris][top]);
+    		case BACKSPACE:
+//    			backspace(*newText, &undoText);
+//    			printf("\nini undo %c\n", undoText.text[baris][top]);
     			break;
-    		case 13:
-    			newText->column[baris][top] = '\n';
-    			top = -1;
-    			baris++;
+    		case ENTER:
+    			*top = -1;
+    			*baris++;
 				break;
-			case 26:
-				copyString(undoText, &(*newText));
+			case UNDO:
+//				copyString(undoText, &(*newText));
 				break;
     		default:
-    			newText->column[baris][top] = temp;
+    			newText->text[*baris][*top] = temp;
     			break;
-		}	
+		}		
     }
+	
 }
 
-void displayText(text newText){
-	printf("\nTeks Anda\n");
-	printf("%s", newText.column);
+void displayText(text newText, int top){
+//	system("cls");
+	int i= 0;
+	int j = 0;
+//	while(j<=baris){
+		while(i<=top){
+			printf("%c", newText.text[i] );
+			i++;
+		}
+//		j++;
+//	}
 }

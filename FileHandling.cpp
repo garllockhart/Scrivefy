@@ -9,10 +9,7 @@ Date			: 27/02/2022
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
-#include "inputText.h"
 #include "FileHandling.h"
-#include "KeyboardShortcuts.h"
-#include "Welcome.h"
 
 void newFile()
 {

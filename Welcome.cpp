@@ -48,6 +48,7 @@ int Welcome()
 			deleteFile();
 			break;
 		case 5 : 
+			help();
 			break;
 		default:
 	 		printf("ERROR : Sorry I don't know the answer to this one!!!\n");

@@ -54,8 +54,10 @@ void setText(text *newText,char temp, char file_name[], int *top,int *baris, int
     else
     {
     	switch(temp){
+    		case SAVE :
+				saveFile(&(*newText),file_name);
     		case BACKSPACE:
-//    			backspace(*newText, &undoText);
+    			BackSpace(*newText, &(*top));
 //    			printf("\nini undo %c\n", undoText.text[baris][top]);
     			break;
     		case ENTER:

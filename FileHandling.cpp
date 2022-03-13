@@ -105,5 +105,27 @@ void deleteFile()
 }
 
 void saveFile(text *newText, char file_name[]){
-	printf("Halo");
+	FILE *FileText;
+	
+	FileText = fopen(file_name, "w+");
+	
+	if(!FileText){
+		printf ("ERROR : Sorry the file is unavailable!!!\n");
+		printf("Press Any Key to continue . . ."); 
+		
+		getch();
+			
+		system("cls");
+		
+		/* Call Modul Welcome */
+		Welcome(); 
+	}
+	
+	fprintf(FileText, "%s", newText->text);
+	
+	fclose(FileText);
+	
+	system("cls");
+	
+	Welcome(); 
 }

@@ -11,6 +11,7 @@ Date			: 27/02/2022
 #include <conio.h>
 #include "pulldown.h"
 #include "FileHandling.h"
+#include "Help.h"
 /* ======= End of Header File ====== */
 
 int Welcome()

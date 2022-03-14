@@ -131,41 +131,45 @@ void saveFile(text *newText, char file_name[]){
 	Welcome(); 
 }
 
-
-void help( )
-{
- 
-    // Declare the file pointer
-    FILE *filePointer ;
-     
-    // Declare the variable for the data to be read from file
-    char dataToBeRead[50];
- 
-    // Open the existing file GfgTest.c using fopen()
-    // in read mode using "r" attribute
-    filePointer = fopen("help.txt", "r") ;
-     
-    // Check if this filePointer is null
-    // which maybe if the file does not exist
-    if ( filePointer == NULL )
-    {
-        printf( "GfgTest.c file failed to open." ) ;
-    }
-    else
-    {
-         
-        printf("The file is now opened.\n") ;
-         
-        // Read the dataToBeRead from the file
-        // using fgets() method
-        while( fgets ( dataToBeRead, 50, filePointer ) != NULL )
-        {
-         
-            // Print the dataToBeRead
-            printf( "%s" , dataToBeRead ) ;
-        }
-         
-        // Closing the file using fclose()
-        fclose(filePointer) ;
-    }      
-}
+void editFile(){
+	printf("\n\tEnter the file name: ");
+	
+	scanf("%s",fn);
+	fp1=fopen(fn,"r");
+	system("cls");
+	
+	if(fp1==NULL){
+		printf("\n\tFile not found!");
+		fclose(fp1);
+		goto end3;
+	}
+	
+	while(!feof(fp1)) {
+		c=getc(fp1);
+		printf("%c",c);
+	}
+	
+	fclose(fp1);
+	printf("\n\n\tType the text and press Ctrl+S to Update\n");
+	fp1=fopen(fn,"a");
+	
+	while(1) {
+		c=getch();
+		if(c==19)
+		goto end3;
+		if(c==13) {
+			c='\n';
+			printf("\n\t");
+			fputc(c,fp1);
+		}
+		else {
+			printf("%c",c);
+			fputc(c,fp1);
+		}
+	}
+	
+	end3: fclose(fp1);
+	 
+	getch();
+	}
+ }

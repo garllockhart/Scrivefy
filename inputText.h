@@ -8,7 +8,7 @@ Date			: 27/02/2022
 #ifndef inputText_H
 #define inputText_H
 
-#define COLUMNS 5
+#define COLUMNS 30
 #define ROWS 2
 
 typedef struct {
@@ -17,5 +17,6 @@ typedef struct {
 
 void inputText(text *newText, char file_name[]);
 void setText(text *newText,char temp, char file_name[], int *top,int *baris,int n);
-void displayText(text newText, int top);
+void displayText(text newText, int baris, int top);
+
 #endif

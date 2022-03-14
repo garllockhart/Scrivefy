@@ -16,6 +16,6 @@ void newFile(); // modul untuk membuat file baru
 //void openFIle():
 void deleteFile();
 void saveFile(text *newText, char file_name[]);
-void help();
+void editFile();
 
 #endif

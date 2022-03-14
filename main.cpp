@@ -14,7 +14,6 @@ Date			: 27/02/2022
 
 int main()
 {
-	/* Call Modul Welcome */
     Welcome();
 
     return 0;

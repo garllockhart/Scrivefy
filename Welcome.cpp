@@ -41,6 +41,7 @@ int Welcome()
 			newFile();
 			break;
 		case 2 : 
+//			openFile();
 			break;
 		case 3 : 
 			break;

@@ -13,6 +13,7 @@ Date			: 27/02/2022
 #include "Welcome.h"
 
 void newFile(); // modul untuk membuat file baru
+//void openFIle():
 void deleteFile();
 void saveFile(text *newText, char file_name[]);
 void help();

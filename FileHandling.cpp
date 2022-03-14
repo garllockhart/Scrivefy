@@ -50,6 +50,7 @@ void newFile()
 	
 }
 
+
 void deleteFile()
 {
 	FILE *FileText;

@@ -131,28 +131,44 @@ void saveFile(text *newText, char file_name[]){
 }
 
 void editFile(){
-	char inpedit;
-
-	printf("Edit File (Y/N) ");
-	scanf("%s",&inpedit);
-	if(inpedit == 'y' || inpedit == 'Y'){
-	int inp;
-    	printf("Pilih index yang mau di edit :  ");
-    	scanf("%d",&inp);
-    	
-    	printf("Data Lama : ");
-    	for(j = 0; text[ inp ][ j ]; j++){
-		putchar(text[ inp ][ j ]);}
-		printf ("\ninput Data baru :");
-		
-	//	gets(text[t]);
-    	
-		scanf("%s",text[inp]);
-    
-    	printf("Data setelah Update : \n%s", text[t]);
-	    	// JANGAN DIHAPUS, CODE ASLI
-	 	for(i = 0; i < t; i++) {
-	   for(j = 0; text[ i ][ j ]; j++) 
-	      putchar(text[ i ][ j ]);
-	   putchar('\n');
+	printf("\n\tEnter the file name: ");
+	
+	scanf("%s",fn);
+	fp1=fopen(fn,"r");
+	system("cls");
+	
+	if(fp1==NULL){
+		printf("\n\tFile not found!");
+		fclose(fp1);
+		goto end3;
+	}
+	
+	while(!feof(fp1)) {
+		c=getc(fp1);
+		printf("%c",c);
+	}
+	
+	fclose(fp1);
+	printf("\n\n\tType the text and press Ctrl+S to Update\n");
+	fp1=fopen(fn,"a");
+	
+	while(1) {
+		c=getch();
+		if(c==19)
+		goto end3;
+		if(c==13) {
+			c='\n';
+			printf("\n\t");
+			fputc(c,fp1);
+		}
+		else {
+			printf("%c",c);
+			fputc(c,fp1);
+		}
+	}
+	
+	end3: fclose(fp1);
+	 
+	getch();
+	}
  }

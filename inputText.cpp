@@ -102,12 +102,22 @@ void inputText(text *newText, char file_name[]){
 	printf("Input Teks Anda\n");
 	for(i=0; i<=ROWS; i++){
 		
+		if (baris == ROWS) {
+			printf("\n");
+			saveFile(*newText,file_name, baris, countColumn);
+		}
+		
 		countColumn[baris] = 0;
 		for(j = 0; j<=COLUMNS; j++){
 			temp = getch();
 			setText(&(*newText), temp, file_name, currentText, &top, &baris, n);
 			countColumn[row] = top;
 			
+			if (baris == ROWS) {
+				printf("\n");
+				saveFile(*newText,file_name, baris, countColumn);
+			}
+		
 			displayCurrentText(currentText, top, *newText, countColumn, baris);
 			top++;
 			
@@ -167,7 +177,12 @@ void displayCurrentText(char currentText[], int top, text newText, int countColu
 
 
 void displayNewText(text newText, int countColumn[],int baris){
-	
+	for(int i=0; i<baris; i++){
+		for(int j=0; j<=countColumn[i]; j++){
+			printf("%c", newText.text[i][j]);
+		}
+		printf("\n");
+	}
 }
 
 

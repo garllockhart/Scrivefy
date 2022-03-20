@@ -15,7 +15,7 @@ Date			: 27/02/2022
 void newFile(); // modul untuk membuat file baru
 //void openFile():
 void deleteFile();
-void saveFile(text *newText, char file_name[]);
+void saveFile(text newText, char file_name[], int baris, int countColumn[]);
 void help();
 
 #endif

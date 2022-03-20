@@ -3,6 +3,6 @@
 
 #include "inputText.h"
 
-void BackSpace(text newText, int *top);
+//void BackSpace(text newText, int *top);
 
 #endif

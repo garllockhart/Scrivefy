@@ -9,14 +9,16 @@ Date			: 27/02/2022
 #define inputText_H
 
 #define COLUMNS 30
-#define ROWS 2
+#define ROWS 3
 
 typedef struct {
 	char text[ROWS][COLUMNS];
 }text;
 
 void inputText(text *newText, char file_name[]);
-void setText(text *newText,char temp, char file_name[], int *top,int *baris,int n);
-void displayText(text newText, int baris, int top);
+void setText(text *newText,char temp, char file_name[],char *currentText, int *top,int *baris,int n);
+void displayCurrentText(char currentText[], int top, text newText, int countColumn[],int baris);
+void addText(text *newText, int kolom, int top, char currentText[], int baris);
+void displayNewText(text newText, int countColumn[], int baris);
 
 #endif

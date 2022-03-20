@@ -38,9 +38,9 @@ CursorRow=1
 =======
 [Editor_8]
 <<<<<<< HEAD
-CursorCol=13
+CursorCol=2
 CursorRow=130
-TopLine=1
+TopLine=70
 =======
 CursorCol=2
 CursorRow=131
@@ -48,7 +48,7 @@ TopLine=93
 >>>>>>> dd899427cbba2ae5f3772a98d649e04941016d1b
 LeftChar=1
 [Editor_5]
-CursorCol=48
+CursorCol=19
 CursorRow=17
 TopLine=1
 LeftChar=1

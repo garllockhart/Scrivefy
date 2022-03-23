@@ -129,7 +129,32 @@ void deleteFile()
 	}
 }
 
+void editFile(){
+	char inpedit;
 
+	printf("Edit File (Y/N) ");
+	scanf("%s",&inpedit);
+	if(inpedit == 'y' || inpedit == 'Y'){
+	int inp;
+    	printf("Pilih index yang mau di edit :  ");
+    	scanf("%d",&inp);
+    	
+    	printf("Data Lama : ");
+    	for(j = 0; text[ inp ][ j ]; j++){
+		putchar(text[ inp ][ j ]);}
+		printf ("\ninput Data baru :");
+		
+	//	gets(text[t]);
+    	
+		scanf("%s",text[inp]);
+    
+    	printf("Data setelah Update : \n%s", text[t]);
+	    	// JANGAN DIHAPUS, CODE ASLI
+	 	for(i = 0; i < t; i++) {
+	   for(j = 0; text[ i ][ j ]; j++) 
+	      putchar(text[ i ][ j ]);
+	   putchar('\n');
+ }
 
 
 //void help( )

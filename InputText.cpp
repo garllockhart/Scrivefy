@@ -57,34 +57,40 @@ void inputText(text *newText, char file_name[]){
 }
 
 void inputUpdateText(text *newText, char file_name[], int currentRow, int countColumn[]){
-	int i, j, top = 0, baris = currentRow, countLog, countCurrent, row, n = COLUMNS;
-	char currentText[COLUMNS], oldText[COLUMNS], logText[COLUMNS], copyText[COLUMNS], temp;
+	int i,j,top =0,baris=currentRow;
+	int countLog;
+	int countCurrent;
+	int kolom;
+	char currentText[COLUMNS], oldText [COLUMNS],logText[COLUMNS],copyText[COLUMNS];
+	int  row;
+	char temp;
+	int n = COLUMNS;
 	
 	printf("\nInput Teks Anda\n");
 	
-	for(i=currentRow+1; i<=ROWS; i++){
+	for(i=0; i<=ROWS; i++){
+		
 		if (baris == ROWS) {
 			printf("\n");
 			saveFile(*newText, file_name, baris, countColumn);
 		}
-		
 		for(j = 0; j<=COLUMNS; j++){
 			temp = getch();
+			countColumn[baris] = top;
 			setText(&(*newText), temp, file_name, oldText, logText, currentText, copyText, &top, &baris, &countLog, &countCurrent,  countColumn);
-			
-			if(temp == 13 || top >n){
+			displayCurrentText(currentText, top, *newText, countColumn, baris);
+			if(temp == ENTER || j >= COLUMNS){
 				break;
-			} else if(temp == COPY || temp == PASTE|| temp == UNDO || temp == REDO || temp == BACKSPACE){
+			}else if(temp == COPY || temp == PASTE|| temp == UNDO || temp == REDO|| temp == BACKSPACE){
 				j--;
 			}
 			
-			countColumn[baris] = top;
-			top++;
-			displayCurrentText(currentText, top, *newText, countColumn, baris);
-			
+			top++;	
 		}
-		
-		row++;
+		addText(&(*newText), kolom, top, currentText, baris);
+		top = 0;
+		countLog = 0;
+		countCurrent = 0;
 		baris++;
 	}
 }

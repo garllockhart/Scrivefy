@@ -31,7 +31,7 @@ void copy(char *copyText, text newText){
 }
 
 void setCopy(int kolom1, int kolom2, int baris, char *copyText, text newText){
-	for(int i = kolom1; i < kolom2; i++){
+	for(int i = kolom1; i <= kolom2; i++){
 		copyText[i] = newText.text[baris][i];
 	}
 	

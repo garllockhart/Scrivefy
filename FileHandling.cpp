@@ -233,10 +233,9 @@ void editFile(){
 //	}
 	while(!feof(fptr) ) {
 		    for(j=0; j<COLUMNS; j++) {
-		    	
 		        fscanf(fptr,"%c",&newText.text[i][j]);
+		        
 		        if(newText.text[i][j] == '\n' || newText.text[i][j] == NULL){
-		        	
 		        	break;
 				}
 		        
@@ -245,7 +244,7 @@ void editFile(){
 		i++;
 		
 	}
-	currentRow = row;
+	
 	fclose(fptr);
 	displayNewText(newText, countColumn, i-1);
 	inputUpdateText(&newText, Location, i-1, countColumn);

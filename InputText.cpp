@@ -17,19 +17,17 @@ Updated at		:
 #include "FileHandling.h"
 #include "UndoRedo.h"
 #include "CopyPaste.h"
+#include "FindReplace.h"
 /* ======= End of Header File ====== */
 
 void inputText(text *newText, char file_name[]){
-	int i, j, top = 0, baris=0;
-	int countLog;
-	int countCurrent;
-	char currentText[COLUMNS], oldText [COLUMNS],logText[COLUMNS], copyText[COLUMNS];
-	int countColumn[ROWS], row;
-	char temp;
+	int i, j, kolom, top = 0, baris = 0, countLog, countCurrent, countColumn[ROWS];
+	char currentText[COLUMNS], oldText[COLUMNS], logText[COLUMNS], copyText[COLUMNS], temp;
 	
-	printf("Enter Your Text\n");
+	printf("Input Teks Anda\n");
 	
-	for(i=0; i<=ROWS; i++){
+	for(i = 0; i <= ROWS; i++){
+		
 		if (baris == ROWS) {
 			printf("\n");
 			saveFile(*newText, file_name, baris, countColumn);
@@ -39,29 +37,30 @@ void inputText(text *newText, char file_name[]){
 			temp = getch();
 			countColumn[baris] = top;
 			setText(&(*newText), temp, file_name, oldText, logText, currentText, copyText, &top, &baris, &countLog, &countCurrent,  countColumn);
+			displayCurrentText(currentText, top, *newText, countColumn, baris);
 			
-			if(temp == 13 || top >COLUMNS){
+			if(temp == ENTER || j >= COLUMNS){
 				break;
+			} else if(temp == COPY || temp == PASTE|| temp == UNDO || temp == REDO|| temp == BACKSPACE){
+				j--;
 			}
 			
-			displayCurrentText(currentText, top, *newText, countColumn, baris);
-			top++;
+			top++;	
 		}
-		row++;
+		
+		addText(&(*newText), kolom, top, currentText, baris);
+		top = 0;
+		countLog = 0;
+		countCurrent = 0;
 		baris++;
 	}
 }
 
 void inputUpdateText(text *newText, char file_name[], int currentRow, int countColumn[]){
-	int i,j,top =0,baris=currentRow;
-	int countLog;
-	int countCurrent;
-	char currentText[COLUMNS], oldText [COLUMNS],logText[COLUMNS],copyText[COLUMNS];
-	int  row;
-	char temp;
-	int n = COLUMNS;
+	int i, j, top = 0, baris = currentRow, countLog, countCurrent, row, n = COLUMNS;
+	char currentText[COLUMNS], oldText[COLUMNS], logText[COLUMNS], copyText[COLUMNS], temp;
 	
-	printf("\nEnter Your Text\n");
+	printf("\nInput Teks Anda\n");
 	
 	for(i=currentRow+1; i<=ROWS; i++){
 		if (baris == ROWS) {
@@ -71,17 +70,20 @@ void inputUpdateText(text *newText, char file_name[], int currentRow, int countC
 		
 		for(j = 0; j<=COLUMNS; j++){
 			temp = getch();
+			setText(&(*newText), temp, file_name, oldText, logText, currentText, copyText, &top, &baris, &countLog, &countCurrent,  countColumn);
 			
 			if(temp == 13 || top >n){
-				j = COLUMNS;
+				break;
+			} else if(temp == COPY || temp == PASTE|| temp == UNDO || temp == REDO || temp == BACKSPACE){
+				j--;
 			}
 			
 			countColumn[baris] = top;
-			setText(&(*newText), temp, file_name, oldText, logText, currentText, copyText, &top, &baris, &countLog, &countCurrent,  countColumn);
-			
 			top++;
 			displayCurrentText(currentText, top, *newText, countColumn, baris);
+			
 		}
+		
 		row++;
 		baris++;
 	}
@@ -129,8 +131,9 @@ void setText(text *newText,char temp, char file_name[], char *oldText, char *log
 		case SAVE:
 			saveFile(*newText, file_name, *baris, countColumn);
 			break;
+		case REPLACE:
+			find(&(*newText), countColumn);
 		default:
-			
 			currentText[*top] = temp;
 			break;
 	}	
@@ -156,7 +159,7 @@ void displayNewText(text newText, int countColumn[],int baris){
 		for(int j=0; j<=countColumn[i]; j++){
 			if(j==countColumn[i]){
 				printf("\n");
-			}else{
+			} else{
 				printf("%c", newText.text[i][j]);
 			}
 		}
@@ -166,6 +169,7 @@ void displayNewText(text newText, int countColumn[],int baris){
 void displayOpenText(text newText, int countColumn[],int baris){
 	for(int i=0; i<baris; i++){
 		printf("%d|", i);
+		
 		for(int j=0; j<countColumn[i]; j++){
 			printf("%c", newText.text[i][j]);
 		}

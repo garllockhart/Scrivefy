@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=18
+UnitCount=14
 
 [VersionInfo]
 Major=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=Welcome.h
+FileName=C:\Users\garll\Videos\Revisi\UndoRedo.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=Welcome.cpp
+FileName=C:\Users\garll\Videos\Revisi\UndoRedo.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -81,26 +81,6 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=pulldown.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
-FileName=pulldown.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
 FileName=FileHandling.h
 CompileCpp=1
 Folder=
@@ -110,7 +90,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit7]
+[Unit3]
 FileName=KeyboardShortcuts.h
 CompileCpp=1
 Folder=
@@ -120,27 +100,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit8]
-FileName=TimeDate.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit9]
-FileName=FileHandling.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit10]
+[Unit6]
 FileName=TimeDate.cpp
 CompileCpp=1
 Folder=
@@ -150,8 +110,48 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit7]
+FileName=Welcome.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit8]
+FileName=Welcome.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit9]
+FileName=InputHandlingNonStandard.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=InputHandlingNonStandard.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit11]
-FileName=inputText.h
+FileName=Help.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -161,7 +161,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=inputText.cpp
+FileName=Help.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -171,7 +171,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=undo_redo.h
+FileName=FileHandling.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -191,7 +191,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=undo_redo.cpp
+FileName=TimeDate.h
 CompileCpp=1
 Folder=
 Compile=1

@@ -1,10 +1,12 @@
 /*
-File Name		: InputText.h
+File Name		: InputText.cpp
 Description		: 
 Author			: 
-Date			: 27/02/2022
+Created at		: 27/02/2022
+Updated at		: 
 */
 
+/* ========== Header File ========== */
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
@@ -15,6 +17,7 @@ Date			: 27/02/2022
 #include "FileHandling.h"
 #include "UndoRedo.h"
 #include "CopyPaste.h"
+/* ======= End of Header File ====== */
 
 void inputText(text *newText, char file_name[]){
 	int i, j, top = 0, baris=0;

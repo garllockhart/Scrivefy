@@ -2,14 +2,15 @@
 File Name		: InputText.h
 Description		: 
 Author			: 
-Date			: 27/02/2022
+Created at		: 27/02/2022
+Updated at		: 
 */
 
 #ifndef InputText_H
 #define InputText_H
 
-#define COLUMNS 30
-#define ROWS 10
+#define COLUMNS 80
+#define ROWS 40
 
 typedef struct {
 	char text[ROWS][COLUMNS];

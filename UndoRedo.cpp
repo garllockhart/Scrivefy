@@ -1,6 +1,16 @@
+/*
+File Name		: UndoRedo.cpp
+Description		: 
+Author			: 
+Created at		: 27/02/2022
+Updated at		: 
+*/
+
+/* ========== Header File ========== */
 #include "UndoRedo.h"
 #include <stdlib.h>
 #include <stdio.h>
+/* ======= End of Header File ====== */
 
 void saveLog(int *countLog, int top, char logText[], char currentText[]){
 	int i;

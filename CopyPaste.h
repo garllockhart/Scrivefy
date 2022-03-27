@@ -1,3 +1,11 @@
+/*
+File Name		: CopyPaste.h
+Description		: 
+Author			: 
+Created at		: 27/02/2022
+Updated at		: 
+*/
+
 #ifndef CopyPaste_H
 #define CopyPaste_H
 #include "InputText.h"

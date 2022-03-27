@@ -2,20 +2,31 @@
 File Name		: Welcome.cpp
 Description		: 
 Author			: 
-Date			: 27/02/2022
+Created at		: 27/02/2022
+Updated at		: 
 */
 
 /* ========== Header File ========== */
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <time.h>
 #include "FileHandling.h"
 #include "Help.h"
+#include "TimeDate.h"
 /* ======= End of Header File ====== */
 
 int Welcome()
 {
+	time_t t;
 	int Menu;
+	struct tm now;
+	
+	t = time(NULL);
+	now = *localtime(&t);
+	
+	printf("Date : %s, %s %d, %d", DAY[now.tm_wday], MONTH[now.tm_mon], now.tm_mday, now.tm_year + 1900);
+	printf("\n\n");
 	
 	printf("|==================================================|\n");
 	printf("|                 WELCOME TO SCRIVEFY              |\n");
@@ -38,19 +49,24 @@ int Welcome()
 	
 	switch(Menu){
 		case 1 : 
+			/* Call Modul newFile */
 			newFile();
 			break;
 		case 2 : 
+			/* Call Modul openFile */
 			openFile();
 			break;
 		case 3 : 
+			/* Call Modul editFile */
 			editFile();
 			break;
 		case 4 : 
+			/* call Modul deleteFile */
 			deleteFile();
 			break;
 		case 5 : 
-			help();
+			/* Call Modul Help */
+			Help();
 			break;
 		default:
 	 		printf("ERROR : Sorry I don't know the answer to this one!!!\n");

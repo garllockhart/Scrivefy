@@ -2,17 +2,20 @@
 File Name		: FileHandling.cpp
 Description		: 
 Author			: 
-Date			: 27/02/2022
+Created at		: 27/02/2022
+Updated at		: 
 */
 
+/* ========== Header File ========== */
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
-#include "inputText.h"
+#include "InputText.h"
 #include "FileHandling.h"
 #include "KeyboardShortcuts.h"
 #include "Welcome.h"
+/* ======= End of Header File ====== */
 
 void newFile()
 {

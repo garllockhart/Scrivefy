@@ -1,9 +1,19 @@
+/*
+File Name		: Help.cpp
+Description		: 
+Author			: 
+Created at		: 27/02/2022
+Updated at		: 
+*/
+
+/* ========== Header File ========== */
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include "Welcome.h"
+/* ======= End of Header File ====== */
 
-void help()
+void Help()
 {
     FILE *filePointer;
     

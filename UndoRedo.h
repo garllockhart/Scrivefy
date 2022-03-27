@@ -1,3 +1,11 @@
+/*
+File Name		: UndoRedo.h
+Description		: 
+Author			: 
+Created at		: 27/02/2022
+Updated at		: 
+*/
+
 #ifndef UndoRedo_h
 #define UndoRedo_h
 #include "InputText.h"

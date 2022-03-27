@@ -9,7 +9,6 @@ Date			: 27/02/2022
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-#include "pulldown.h"
 #include "FileHandling.h"
 #include "Help.h"
 /* ======= End of Header File ====== */
@@ -42,9 +41,10 @@ int Welcome()
 			newFile();
 			break;
 		case 2 : 
-//			openFile();
+			openFile();
 			break;
 		case 3 : 
+			editFile();
 			break;
 		case 4 : 
 			deleteFile();

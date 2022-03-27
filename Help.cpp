@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include "Welcome.h"
 
 void help()
 {
@@ -6,7 +9,7 @@ void help()
     
     char dataToBeRead[50];
 
-    filePointer = fopen("help.txt", "r");
+    filePointer = fopen("Help.txt", "r");
     
     if (filePointer == NULL) {
         printf( "GfgTest.c file failed to open." );
@@ -20,4 +23,14 @@ void help()
          
         fclose(filePointer) ;
     }      
+    
+    printf("\n\n");
+    printf("Press Any Key to continue . . ."); 
+		
+	getch();
+		
+	system("cls");
+		
+	/* Call Modul Welcome */
+	Welcome(); 
 }

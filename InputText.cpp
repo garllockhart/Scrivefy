@@ -110,12 +110,20 @@ void setText(text *newText,char temp, char file_name[], char *oldText, char *log
 			paste(copyText, &(*newText), countColumn );
 			system("CLS");
 			break;
+			
 		case SPACE:
+			
 			currentText[*top] = temp;
+			
+			
 			saveLog(&(*countLog) , *top, logText, currentText);
 			lenLog = *countLog;
+			
 			break;
+			
+			
 		case ENTER:
+			
 			currentText[*top] = temp;
 			addText(&(*newText), kolom, *top, currentText, *baris);
 			
@@ -123,10 +131,9 @@ void setText(text *newText,char temp, char file_name[], char *oldText, char *log
 			*countLog = 0;
 			*countCurrent = 0;
 			
-//			memset(oldText, 0, sizeof oldText);;
-//			memset(logText, 0, sizeof logText);;
-			
 			break;
+			
+			
 		case UNDO:
 			saveCurrent(&(*countCurrent), *top, oldText, currentText);
 			undo(&(*top), *countLog,  logText, currentText);
@@ -183,9 +190,12 @@ void displayOpenText(text newText, int countColumn[],int baris){
 }
 
 void addText(text *newText, int kolom, int top, char currentText[], int baris){
+	
 	kolom = 0;
 	
+	
 	for(int i= 0; i<top; i++){
+		
 		newText->text[baris][kolom] = currentText[i];
 		kolom++;
 	}

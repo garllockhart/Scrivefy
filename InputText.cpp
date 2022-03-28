@@ -144,6 +144,9 @@ void setText(text *newText,char temp, char file_name[], char *oldText, char *log
 		case SAVE:
 			saveFile(*newText, file_name, *baris, countColumn);
 			break;
+		case SAVEAS:
+			saveasFile(*newText, *baris, countColumn);
+			break;
 		case REPLACE:
 			find(&(*newText), countColumn);
 		default:

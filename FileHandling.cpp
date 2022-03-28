@@ -250,4 +250,51 @@ void editFile(){
 	inputUpdateText(&newText, Location, i-1, countColumn);
 }
 
-
+void saveasFile(text newText, int baris, int countColumn[]) {
+	FILE *FileText;
+	char Location[30], FileName[25], Extension[5];
+	
+	printf("\n\n");
+	printf("Enter File Name (Without Extension) : \n");
+	scanf("%s", &FileName);
+	strcpy(Extension, ".txt");
+	strcpy(Location, "Text/");
+	
+	strcat(Location, FileName);
+	strcat(Location, Extension);
+	
+	FileText = fopen(Location, "w+");
+	
+	if(!FileText){
+		printf("ERROR : Sorry the file is unavailable!!!\n");
+		printf("Press Any Key to continue . . ."); 
+		
+		getch();
+			
+		system("cls");
+		
+		/* Call Modul Welcome */
+		Welcome(); 
+	}
+	
+	for(int i=0; i<baris; i++){
+		for(int j=0; j<countColumn[i]; j++){
+			fprintf(FileText, "%c", newText.text[i][j]);
+		}
+		fprintf(FileText, "\n");
+	}
+	
+	for(int i=0; i<baris; i++){
+		for(int j=0; j<=countColumn[i]; j++){
+			printf( "%c", newText.text[i][j]);
+		}
+		printf("\n");
+	}
+	
+	
+	fclose(FileText);
+	
+	system("cls");
+	
+	Welcome(); 
+}

@@ -20,5 +20,6 @@ Updated at		:
 #define SPACE 32 /* SPACE */
 #define DELETE 127 /* DELETE */
 #define REPLACE 6 /* REPLACE */
+#define SAVEAS 7 /* CTRL + G */
 
 #endif

@@ -1,9 +1,9 @@
 /*
 File Name		: InputText.cpp
-Description		: 
-Author			: 
+Description		: Berisi algorima modul-modul yang berguna untuk mengolah kata
+Author			: Jeremia Edwin Hamonangan
 Created at		: 27/02/2022
-Updated at		: 
+Updated at		: 28/03/2022
 */
 
 /* ========== Header File ========== */
@@ -21,42 +21,55 @@ Updated at		:
 /* ======= End of Header File ====== */
 
 void inputText(text *newText, char file_name[]){
-	int i, j, kolom, top = 0, baris = 0, countLog, countCurrent, countColumn[ROWS];
-	char currentText[COLUMNS], oldText[COLUMNS], logText[COLUMNS], copyText[COLUMNS], temp;
+	// KAMUS DATA
+	int i; 
+	int j; 
+	int kolom;
+	int top = 0;					// variabel penunjuk teks
+	int baris = 0;					// variabel baris
+	int countLog;					// variabel penghitung jumlah elemen log text
+	int countCurrent;				// variabel penghitung jumlah elmen current text
+	int countColumn[ROWS];			// variabel penyimpan panjang setiap baris textt
+	
+	char currentText[COLUMNS];		// variabel array yang menampung teks di baris baru
+	char oldText[COLUMNS];			// menyimpan teks sebelum di undo yang nantinya akan dipanggil lagi dengan redo
+	char logText[COLUMNS]; 			// menyimpan teks untuk log atau history, akan dipanggil ketika undo 
+	char copyText[COLUMNS];			// menyimpan teks yang disalin
+	char temp;						// menyimpan setiap karakter yang diinput
 	
 	printf("Input Teks Anda\n");
 	
-	for(i = 0; i <= ROWS; i++){
+	for(i = 0; i <= ROWS; i++){ 
 		
-		if (baris == ROWS) {
+		if (baris == ROWS) {										// Jika baris sudah berada diakhir maka jalankan modul save
 			printf("\n");
-			saveFile(*newText, file_name, baris, countColumn);
+			saveFile(*newText, file_name, baris, countColumn);		// modul save
 		}
 		
 		for(j = 0; j<=COLUMNS; j++){
-			temp = getch();
-			countColumn[baris] = top;
-			setText(&(*newText), temp, file_name, oldText, logText, currentText, copyText, &top, &baris, &countLog, &countCurrent,  countColumn);
-			displayCurrentText(currentText, top, *newText, countColumn, baris);
+			temp = getch();															// Menerima input karakter
+			countColumn[baris] = top;												// Menambah banyaknya kolom pada baris saat ini
+			setText(&(*newText), temp, file_name, oldText, logText, currentText, copyText, &top, &baris, &countLog, &countCurrent,  countColumn); // Memasukkan karakter yang telah diinput kedalam array
+			displayCurrentText(currentText, top, *newText, countColumn, baris);		// Menampilkan text yang baru diinput
 			
-			if(temp == ENTER || j >= COLUMNS){
+			if(temp == ENTER || j >= COLUMNS){																// Pengkondisian jika karakter input atau sudah melebihi batas kolom maka hentikan loop
 				break;
-			} else if(temp == COPY || temp == PASTE|| temp == UNDO || temp == REDO|| temp == BACKSPACE){
+			} else if(temp == COPY || temp == PASTE|| temp == UNDO || temp == REDO|| temp == BACKSPACE){	// Pengkondisian jika input merupakan shortcut maka variabel pencacah tidak menambah nilainya
 				j--;
 			}
 			
-			top++;	
+			top++;																	// 	Menambah nilai top
 		}
 		
-		addText(&(*newText), kolom, top, currentText, baris);
-		top = 0;
-		countLog = 0;
-		countCurrent = 0;
-		baris++;
+		addText(&(*newText), kolom, top, currentText, baris);						// Ketika memasuki baris baru maka current text dimasukkan ke dalam matrik
+		top = 0;																	// Merubah nilai top menjadi 0 kembali
+		countLog = 0;																// Merubah nilai count log menjadi 0 kembali
+		countCurrent = 0;															// Merubah nilai count log menjadi 0 kembali
+		baris++;																	// Menambah nilai baris
 	}
 }
 
-void inputUpdateText(text *newText, char file_name[], int currentRow, int countColumn[]){
+void inputUpdateText(text *newText, char file_name[], int currentRow, int countColumn[]){	// Memiliki karakteristik yang sama dengan modul inputText hanya berbeda pada parameter
 	int i,j,top =0,baris=currentRow;
 	int countLog;
 	int countCurrent;
@@ -100,7 +113,6 @@ void setText(text *newText,char temp, char file_name[], char *oldText, char *log
 	int lenLog;
 	switch(temp){
 		case BACKSPACE:
-//			isOld = 0;
 			BackSpace(&(*top));
 			break;
 		case COPY:
@@ -118,14 +130,6 @@ void setText(text *newText,char temp, char file_name[], char *oldText, char *log
 		case ENTER:
 			currentText[*top] = temp;
 			addText(&(*newText), kolom, *top, currentText, *baris);
-			
-			*top = 0;
-			*countLog = 0;
-			*countCurrent = 0;
-			
-//			memset(oldText, 0, sizeof oldText);;
-//			memset(logText, 0, sizeof logText);;
-			
 			break;
 		case UNDO:
 			saveCurrent(&(*countCurrent), *top, oldText, currentText);

@@ -254,6 +254,7 @@ void saveasFile(text newText, int baris, int countColumn[]) {
 	FILE *FileText;
 	char Location[30], FileName[25], Extension[5];
 	
+	printf("\n\n");
 	printf("Enter File Name (Without Extension) : \n");
 	scanf("%s", &FileName);
 	strcpy(Extension, ".txt");

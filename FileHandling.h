@@ -18,6 +18,6 @@ void openFile();
 void deleteFile();
 void editFile();
 void saveFile(text newText, char file_name[], int baris, int countColumn[]);
-//void help();
+void saveasFile(text newText, int baris, int countColumn[]);
 
 #endif
